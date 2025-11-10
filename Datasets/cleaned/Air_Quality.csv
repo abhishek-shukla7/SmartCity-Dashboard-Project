@@ -1,4 +1,4 @@
-City,Date,PM2.5,PM10,NO,NO2,NOx,NH3,CO,SO2,O3,Benzene,Toluene,Xylene,AQI,AQI_Bucket
+Zone_Name,Date,PM2.5,PM10,NO,NO2,NOx,NH3,CO,SO2,O3,Benzene,Toluene,Xylene,AQI,AQI_Category
 Amaravati,11/25/2017,81.4,124.5,1.44,20.5,12.08,10.72,0.12,15.24,127.09,0.2,6.5,0.06,184,Moderate
 Amaravati,11/26/2017,78.32,129.06,1.26,26,14.85,10.28,0.14,26.96,117.44,0.22,7.95,0.08,197,Moderate
 Amaravati,11/27/2017,88.76,135.32,6.6,30.85,21.77,12.91,0.11,33.59,111.81,0.29,7.63,0.12,198,Moderate
