@@ -1,121 +1,83 @@
-🏙️ Smart City Infrastructure Dashboard (Power BI)
-📌 Project Overview
+# Smart City Dashboard – Power BI Project
 
-The Smart City Infrastructure Dashboard is an interactive Power BI project designed to analyze and visualize key urban metrics such as Air Quality (AQI), Energy Usage, Traffic Violations, and City Health Index.
-This dashboard helps decision-makers monitor city performance, identify problem zones, and take data-driven actions.
+## About the Project
+This project is a Smart City Dashboard created using Power BI to analyze and visualize city-level data such as Air Quality (AQI), Energy Consumption, Traffic Fines, and Zone-wise performance.
 
-🎯 Objectives
+The main purpose of this dashboard is to understand how different city zones are performing and to identify problem areas using interactive visuals and alerts.
 
-Monitor Air Quality Index (AQI) across multiple zones
+---
 
-Analyze Energy Consumption trends
+## What This Dashboard Shows
+- Air Quality Index (AQI) analysis across zones
+- Energy usage trends over time
+- Traffic fines and delays
+- Alert-based classification of zones (Good, Moderate, Unhealthy)
+- Detailed analysis for individual zones
 
-Track Traffic violations & delays
+---
 
-Identify alert zones using threshold logic
+## Dashboard Pages
 
-Provide zone-wise and time-based insights
+### 1. Overview
+- Key KPI cards (Average AQI, Energy Usage, Traffic Delay)
+- AQI and Energy trends
+- City health summary
+- Filters for date and zone
 
-Create a clean, interactive, and professional dashboard
+### 2. Map & Sensor View
+- Map-based visualization of city zones
+- AQI distribution using sensors
+- Interactive zone filtering
 
-🧩 Dashboard Pages
+### 3. Trends & Forecasts
+- AQI and Energy trends over time
+- Metric toggle (AQI / Energy / Traffic)
+- Trend comparison for decision making
 
-Overview
+### 4. Alerts & Thresholds
+- Zone-wise AQI alert levels
+- Conditional color formatting
+- Alert table with zone and date details
+- Filters for date, zone, and metric
 
-KPI cards (Average AQI, Energy Usage, Traffic Delay, Zones Above Threshold)
+### 5. Zone Detail View
+- Detailed analysis of a selected zone
+- AQI category distribution
+- Energy usage by zone
+- Traffic fine analysis
 
-AQI & Energy trend analysis
+---
 
-City Health Index gauge
+## Tools Used
+- Power BI
+- DAX
+- Excel / CSV data
+- Data modeling
+- Conditional formatting
+- Interactive slicers and filters
 
-Interactive filters
+---
 
-Map & Sensor View
+## Dataset
+The data used in this project is sample / simulated data created for learning and demonstration purposes.  
+It includes AQI data, energy usage, traffic fines, and zone information.
 
-Geographic visualization of zones
+---
 
-Sensor-based AQI distribution
+## How to Use
+1. Download the `.pbix` file
+2. Open it in Power BI Desktop
+3. Use slicers and filters to explore the dashboard
+4. Navigate through different pages for insights
 
-Zone selection using slicers
+---
 
-Trends & Forecasts
+## Author
+**Abhishek Shukla**
 
-AQI and Energy trends over time
+This project is created as part of my learning and portfolio to demonstrate practical skills in Power BI and data analytics.
 
-Traffic flow and fine analysis
+---
 
-Metric toggle using buttons
-
-Alerts & Thresholds
-
-AQI alert classification (Good, Moderate, Unhealthy)
-
-Conditional formatting for alerts
-
-Zone-wise alert table
-
-Date & metric filters
-
-Zone Detail View
-
-Deep-dive zone analysis
-
-AQI category distribution
-
-Energy usage by zone
-
-Traffic fine trends
-
-🛠️ Tools & Technologies
-
-Power BI
-
-DAX
-
-Excel / CSV datasets
-
-Data Modeling
-
-Conditional Formatting
-
-Interactive Slicers & Filters
-
-Map Visuals
-
-📊 Key Features
-
-Interactive slicers (Date, Zone, Metric)
-
-Conditional color alerts (🔴 Unhealthy, 🟡 Moderate, 🟢 Good)
-
-KPI cards with clear indicators
-
-Trend analysis and insights
-
-Clean dark-theme UI for better readability
-
-Recruiter-friendly and real-world dashboard design
-
-📁 Dataset
-
-The dataset includes:
-
-Air Quality data
-
-Energy usage by zone
-
-Traffic violations & fines
-
-Date and zone master tables
-
-(Sample or simulated data used for learning and demonstration purposes.)
-
-🚀 How to Use
-
-Download the .pbix file
-
-Open it in Power BI Desktop
-
-Interact using slicers and filters
-
-Navigate between pages for detailed insights
+## Feedback
+Suggestions and feedback are welcome.
