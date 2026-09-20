@@ -142,24 +142,52 @@ def date_slider(label, df, key):
     return st.slider(label, dmin, dmax, (dmin, dmax), key=key)
 
 def city_map(frame, value_col="AQI", title="City-wide sensor map"):
+    # Use a manual Scattergeo trace instead of Plotly Express' size/color mapping.
+    # This avoids a Plotly validator issue on Streamlit Cloud while preserving the
+    # interactive AQI map and hover values.
     coords = pd.DataFrame(
         [(k, v[0], v[1]) for k, v in CITY_COORDS.items()],
         columns=["Zone_Name", "lat", "lon"]
     )
-    m = frame.merge(coords, on="Zone_Name", how="left").dropna(subset=["lat", "lon"])
+    m = frame.merge(coords, on="Zone_Name", how="left").dropna(subset=["lat", "lon"]).copy()
     if m.empty:
         st.info("No mapped city data is available for the selected filters.")
         return
-    fig = px.scatter_geo(
-        m, lat="lat", lon="lon", size=value_col, color=value_col,
-        hover_name="Zone_Name", hover_data={value_col: ":.2f", "lat": False, "lon": False},
-        scope="asia", projection="natural earth",
-        color_continuous_scale=["#00C853", "#FFB300", "#FF1F1F"], title=title
+
+    m[value_col] = pd.to_numeric(m[value_col], errors="coerce")
+    m = m.dropna(subset=[value_col])
+    if m.empty:
+        st.info("No numeric metric values are available for the selected filters.")
+        return
+
+    vals = m[value_col].astype(float).to_numpy()
+    fig = go.Figure(
+        go.Scattergeo(
+            lat=m["lat"].astype(float).to_numpy(),
+            lon=m["lon"].astype(float).to_numpy(),
+            text=m["Zone_Name"].astype(str),
+            customdata=vals,
+            mode="markers",
+            marker=dict(
+                size=13,
+                color=vals,
+                colorscale=[[0.0, "#00C853"], [0.5, "#FFB300"], [1.0, "#FF1F1F"]],
+                cmin=float(vals.min()),
+                cmax=float(vals.max()) if float(vals.max()) > float(vals.min()) else float(vals.min()) + 1,
+                colorbar=dict(title=value_col),
+                line=dict(width=1, color="#FFFFFF")
+            ),
+            hovertemplate="<b>%{text}</b><br>" + value_col + ": %{customdata:.2f}<extra></extra>"
+        )
     )
     fig.update_geos(
-        showland=True, landcolor="#17324A", showocean=True, oceancolor="#061522",
-        showcountries=True, countrycolor="#58748B", coastlinecolor="#58748B"
+        scope="asia", projection_type="natural earth",
+        showland=True, landcolor="#17324A",
+        showocean=True, oceancolor="#061522",
+        showcountries=True, countrycolor="#58748B",
+        coastlinecolor="#58748B"
     )
+    fig.update_layout(title=title)
     st.plotly_chart(style_fig(fig, 460), use_container_width=True)
 
 def metric_series(metric, start, end):
